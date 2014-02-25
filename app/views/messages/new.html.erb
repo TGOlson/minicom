@@ -1,0 +1,14 @@
+<h1>Send a new message to <%= @user.name %></h1>
+
+<%= form_for @message, url: user_messages_path(@user) do |f| %>
+  <div>
+    <%= f.label :text, 'Type your message below.' %>
+  </div>
+  <div>
+    <%= f.text_area :text %>
+  </div>
+  <div>
+    <%= f.submit 'Send' %>
+  </div>
+
+<% end %>

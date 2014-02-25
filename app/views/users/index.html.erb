@@ -1,0 +1,34 @@
+<h1>Admin Panel</h1>
+
+<h3>All users</h3>
+
+<table>
+  <tr>
+    <th><%= link_to 'Name', users_path(sort_type: 'name', sort_direction: swap_direction) %></th>
+    <th><%= link_to 'Email', users_path(sort_type: 'email', sort_direction: swap_direction) %></th>
+    <th><%= link_to 'Last Login', users_path(sort_type: 'last_login', sort_direction: swap_direction) %></th>
+    <th><%= link_to 'Login Count', users_path(sort_type: 'login_count', sort_direction: swap_direction) %></th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= link_to user.name, user_messages_path(user) %>
+      </td>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+        <%= time_ago_in_words(user.last_login).capitalize %> ago.
+      </td>
+      <td>
+        <%= user.login_count %>
+      </td>
+      <td>
+        <%= link_to 'New Message', new_user_message_path(user), class: 'new-message-link' %>
+      </td>
+
+    </tr>
+  <% end %>
+
+</table>

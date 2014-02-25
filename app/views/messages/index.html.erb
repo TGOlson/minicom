@@ -1,0 +1,15 @@
+<h1>User Profile</h1>
+
+<p>Name: <%= @user.name %></p>
+<p>Email: <%= @user.email %></p>
+<p>Last login: <%= time_tag(@user.last_login) %></p>
+
+<p><%= link_to 'New Message', new_user_message_path(@user) %></p>
+
+<h3>All User Messages</h3>
+
+<ul>
+<% @user.messages.each do |message| %>
+<li><%= message.text %> <span class='read-status'><%= message.read? ? '[read]' : '[unread]' %></span></li>
+<% end %>
+</ul>
