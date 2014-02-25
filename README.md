@@ -14,8 +14,8 @@ A client can install the Slim Message system by pasting the below before the clo
 <script>
   var userInformation = {
     user: {
-      name: 'Ben',
-      email: 'ben@gmail.com'
+      name:  'your-name',
+      email: 'your-email'
     }
   }
 </script>
